@@ -1,21 +1,31 @@
-// Site-wide brand + navigation data (from scraped content reference)
-export const SITE = {
-  name: "The Orbis School",
-  tagline: "Empowering Mind, Energising Being",
-  motto: "Learners today, Leaders tomorrow!",
-  board: "CBSE",
-  range: "Preschool → Class 12",
-  logo: "/images/orbis-logo.png",
-  metaTitle: "Best CBSE Preschool & School in Pune | Admissions Open 2026–27",
-  metaDescription:
-    "Looking for the best CBSE school in Pune? The Orbis School offers quality education from preschool to Class 12 at Keshav Nagar, Mundhwa & Gahunje. Admissions for 2026–27 are now open!",
-  admissionsYear: "2026–27",
-  phone: "+91-86868 60290",
-  email: "info.pune1@theorbisschool.com",
-  domain: "https://www.theorbisschool.com",
-} as const;
+// Site-wide brand data — editable via the CMS dashboard (content/site.json).
+// Navigation structure stays in code (structural, not content).
+import siteJson from "../../content/site.json";
 
-export const NAV_GROUPS = [
+export interface SiteSettings {
+  name: string;
+  tagline: string;
+  motto: string;
+  board: string;
+  range: string;
+  logo: string;
+  metaTitle: string;
+  metaDescription: string;
+  admissionsYear: string;
+  phone: string;
+  email: string;
+  domain: string;
+}
+
+export const SITE = siteJson as SiteSettings;
+
+export interface NavGroup {
+  label: string;
+  href: string;
+  children: { label: string; href: string }[];
+}
+
+export const NAV_GROUPS: NavGroup[] = [
   {
     label: "About Us",
     href: "/about/why-orbis",

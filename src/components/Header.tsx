@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { NAV_GROUPS, SITE } from "@/content/site";
@@ -9,11 +9,19 @@ export default function Header() {
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileGroup, setMobileGroup] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
       {/* Top bar */}
-      <div className="bg-brand-900 text-white text-xs sm:text-sm">
+      <div className="bg-gradient-to-r from-brand-900 via-brand-800 to-brand-900 text-white text-xs sm:text-sm">
         <div className="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between gap-4">
           <p className="font-medium tracking-wide">
             {SITE.tagline} · <span className="text-accent-400">{SITE.motto}</span>
@@ -30,7 +38,7 @@ export default function Header() {
       </div>
 
       {/* Main nav */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-brand-100 shadow-sm">
+      <header className={`sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-brand-100 transition-shadow duration-300 ${scrolled ? "shadow-lg shadow-brand-900/5" : "shadow-sm"}`}>
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex items-center justify-between h-16 sm:h-20">
             <Link href="/" className="flex items-center gap-3" aria-label="The Orbis School — Home">

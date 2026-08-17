@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 
-// Scroll-reveal wrapper — fades content up when it enters the viewport.
+// Scroll-reveal wrapper — fades + unblurs content when it enters the viewport.
 export default function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
 

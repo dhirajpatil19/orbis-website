@@ -1,0 +1,118 @@
+# Decap CMS configuration — The Orbis School
+# Backend: Netlify Git Gateway (requires Identity + Git Gateway enabled on the site:
+# Netlify → Site settings → Identity → Enable; Identity → Services → Git Gateway → Enable)
+backend:
+  name: git-gateway
+  branch: main
+
+# Media library — uploaded images are committed to the repo under public/images/uploads
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Collections = what appears in the left sidebar of the dashboard
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "URL identifier — lowercase letters, numbers and hyphens only (e.g. why-preschool-matters). Keep it short."
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "One-two sentence summary shown on the blog list page." }
+      - { label: "Tags", name: "tags", widget: "list", default: ["Parent"] }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Write normally — each blank line becomes a new paragraph." }
+
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "Route path, e.g. about/why-orbis. Do not change unless you know how routing works."
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Kicker", name: "kicker", widget: "string", hint: "Small label above the title, e.g. 'About Us'." }
+      - { label: "Meta Title (SEO)", name: "metaTitle", widget: "string" }
+      - { label: "Meta Description (SEO)", name: "metaDescription", widget: "text" }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        hint: "Use ## for section headings and - for bullet lists. Special pages (enquiry, testimonials, FAQs, contact) render their own layout — edits to their body appear as intro text."
+
+  - name: "campuses"
+    label: "Campuses"
+    file: "content/campuses.json"
+    fields:
+      - label: "Campuses"
+        name: "campuses"
+        widget: "list"
+        fields:
+          - { label: "Slug", name: "slug", widget: "select", options: ["keshav-nagar", "mundhwa", "gahunje"] }
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Short Name", name: "shortName", widget: "string" }
+          - { label: "Address", name: "address", widget: "text" }
+          - { label: "Phones", name: "phones", widget: "list" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - { label: "Blurb", name: "blurb", widget: "text" }
+          - { label: "Google Maps Query", name: "mapQuery", widget: "string", hint: "Text used for the 'Open in Google Maps' link." }
+
+  - name: "events"
+    label: "Events & Stats"
+    file: "content/events.json"
+    fields:
+      - label: "Upcoming Events"
+        name: "events"
+        widget: "list"
+        fields:
+          - { label: "Date", name: "date", widget: "string", hint: "e.g. 28th Aug" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Type", name: "type", widget: "select", options: ["holiday", "activity", "meeting"] }
+      - label: "Stats (homepage counters)"
+        name: "stats"
+        widget: "list"
+        fields:
+          - { label: "Value", name: "value", widget: "string", hint: "e.g. 3000+" }
+          - { label: "Label", name: "label", widget: "string", hint: "e.g. Students Enrolled" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    file: "content/testimonials.json"
+    fields:
+      - label: "Parent Testimonials"
+        name: "testimonials"
+        widget: "list"
+        fields:
+          - { label: "Quote", name: "quote", widget: "text" }
+          - { label: "Author", name: "author", widget: "string" }
+          - { label: "Role", name: "role", widget: "string" }
+
+  - name: "settings"
+    label: "Site Settings"
+    file: "content/site.json"
+    fields:
+      - { label: "School Name", name: "name", widget: "string" }
+      - { label: "Tagline", name: "tagline", widget: "string" }
+      - { label: "Motto", name: "motto", widget: "string" }
+      - { label: "Board", name: "board", widget: "string" }
+      - { label: "Range", name: "range", widget: "string", hint: "e.g. Preschool → Class 12" }
+      - { label: "Logo", name: "logo", widget: "image" }
+      - { label: "Meta Title (SEO)", name: "metaTitle", widget: "string" }
+      - { label: "Meta Description (SEO)", name: "metaDescription", widget: "text" }
+      - { label: "Admissions Year", name: "admissionsYear", widget: "string", hint: "e.g. 2026–27" }
+      - { label: "Phone", name: "phone", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "Live Site Domain", name: "domain", widget: "string", hint: "The current official site, linked as Parent/ERP portal." }

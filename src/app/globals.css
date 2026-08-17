@@ -8,6 +8,7 @@
   --color-brand-600: #33594c;
   --color-brand-500: #4a7a66;
   --color-brand-400: #6f9a88;
+  --color-brand-300: #9cbeb0;
   --color-brand-100: #e7efeb;
   --color-brand-50: #f3f7f5;
 
@@ -71,6 +72,66 @@ h1, h2, h3, h4 {
   border-radius: 4px;
 }
 
+/* Slim, brand-tinted scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-brand-300); border-radius: 999px; border: 2px solid var(--color-paper); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-brand-500); }
+
+/* ─── Motion ─────────────────────────────────────────────── */
+
+/* Hero content entrance */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-hero-fade-up {
+  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Slow zoom on the active hero image */
+@keyframes ken-burns {
+  from { transform: scale(1); }
+  to { transform: scale(1.09); }
+}
+.animate-ken-burns {
+  animation: ken-burns 10s ease-out forwards;
+}
+
+/* Events ticker marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle floating for badges */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+/* Reveal-on-scroll (JS adds .is-visible; reduced-motion users see content immediately) */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(5px);
+  transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -78,18 +139,6 @@ h1, h2, h3, h4 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* Reveal-on-scroll (JS adds .is-visible; reduced-motion users see content immediately) */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; }
+  .reveal { opacity: 1; transform: none; filter: none; }
+  .animate-marquee { animation: none; }
 }
