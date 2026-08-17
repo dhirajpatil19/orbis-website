@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { POSTS } from "@/content/posts";
-import { SectionHeading } from "@/components/Blocks";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {

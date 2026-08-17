@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
-import { SITE, NAV_GROUPS } from "@/content/site";
+import { SITE } from "@/content/site";
 import { CAMPUSES } from "@/content/campuses";
 import { NewsletterForm } from "@/components/Forms";
 

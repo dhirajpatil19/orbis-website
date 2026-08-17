@@ -9,7 +9,6 @@ import { EnquiryForm, ContactForm } from "@/components/Forms";
 import { PAGES, getPage } from "@/content/pages";
 import { CAMPUSES, getCampus } from "@/content/campuses";
 import { TESTIMONIALS } from "@/content/testimonials";
-import { SITE } from "@/content/site";
 
 // Campus sub-pages (each campus gets a consistent set)
 const CAMPUS_SUBPAGES = [
