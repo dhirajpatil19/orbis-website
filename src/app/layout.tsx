@@ -44,6 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Netlify Identity widget — loaded site-wide so account confirmation /
+            invite / recovery tokens in the URL fragment are handled on any page */}
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
       </head>
       <body className="antialiased">
         <a href="#main" className="skip-link">Skip to main content</a>
