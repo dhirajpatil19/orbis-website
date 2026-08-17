@@ -39,7 +39,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const path = slug.join("/");
   const page = getPage(path);
   if (page) {
-    return { title: page.metaTitle, description: page.metaDescription };
+    // Avoid "| The Orbis School | The Orbis School": the layout template appends
+    // the suffix, so strip it from metaTitles that already include it.
+    const metaTitle = page.metaTitle.replace(/\s*\|\s*The Orbis School\s*$/, "");
+    return { title: metaTitle, description: page.metaDescription };
   }
   if (slug[0] === "campuses") {
     const campus = getCampus(slug[1] ?? "");
