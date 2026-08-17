@@ -3,6 +3,9 @@ import { PAGES } from "@/content/pages";
 import { CAMPUSES } from "@/content/campuses";
 import { POSTS } from "@/content/posts";
 
+// Required for static export ("output: export") — route is prerendered at build time.
+export const dynamic = "force-static";
+
 const BASE = "https://orbis-website.netlify.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
