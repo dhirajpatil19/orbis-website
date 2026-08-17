@@ -11,6 +11,7 @@ public_folder: "/images/uploads"
 
 # Collections = what appears in the left sidebar of the dashboard
 collections:
+  # ── Folder collection: one file per post ──────────────────────────
   - name: "posts"
     label: "Blog Posts"
     folder: "content/posts"
@@ -30,6 +31,7 @@ collections:
       - { label: "Cover Image", name: "cover", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", hint: "Write normally — each blank line becomes a new paragraph." }
 
+  # ── Folder collection: one file per page ──────────────────────────
   - name: "pages"
     label: "Pages"
     folder: "content/pages"
@@ -52,67 +54,83 @@ collections:
         widget: "markdown"
         hint: "Use ## for section headings and - for bullet lists. Special pages (enquiry, testimonials, FAQs, contact) render their own layout — edits to their body appear as intro text."
 
+  # ── File collection: single campuses.json ─────────────────────────
   - name: "campuses"
     label: "Campuses"
-    file: "content/campuses.json"
-    fields:
-      - label: "Campuses"
-        name: "campuses"
-        widget: "list"
+    files:
+      - name: "campuses"
+        label: "Campuses"
+        file: "content/campuses.json"
         fields:
-          - { label: "Slug", name: "slug", widget: "select", options: ["keshav-nagar", "mundhwa", "gahunje"] }
-          - { label: "Name", name: "name", widget: "string" }
-          - { label: "Short Name", name: "shortName", widget: "string" }
-          - { label: "Address", name: "address", widget: "text" }
-          - { label: "Phones", name: "phones", widget: "list" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Image", name: "image", widget: "image", required: false }
-          - { label: "Blurb", name: "blurb", widget: "text" }
-          - { label: "Google Maps Query", name: "mapQuery", widget: "string", hint: "Text used for the 'Open in Google Maps' link." }
+          - label: "Campuses"
+            name: "campuses"
+            widget: "list"
+            fields:
+              - { label: "Slug", name: "slug", widget: "select", options: ["keshav-nagar", "mundhwa", "gahunje"] }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Short Name", name: "shortName", widget: "string" }
+              - { label: "Address", name: "address", widget: "text" }
+              - { label: "Phones", name: "phones", widget: "list" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Blurb", name: "blurb", widget: "text" }
+              - { label: "Google Maps Query", name: "mapQuery", widget: "string", hint: "Text used for the 'Open in Google Maps' link." }
 
+  # ── File collection: single events.json ───────────────────────────
   - name: "events"
     label: "Events & Stats"
-    file: "content/events.json"
-    fields:
-      - label: "Upcoming Events"
-        name: "events"
-        widget: "list"
+    files:
+      - name: "events"
+        label: "Events & Stats"
+        file: "content/events.json"
         fields:
-          - { label: "Date", name: "date", widget: "string", hint: "e.g. 28th Aug" }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Type", name: "type", widget: "select", options: ["holiday", "activity", "meeting"] }
-      - label: "Stats (homepage counters)"
-        name: "stats"
-        widget: "list"
-        fields:
-          - { label: "Value", name: "value", widget: "string", hint: "e.g. 3000+" }
-          - { label: "Label", name: "label", widget: "string", hint: "e.g. Students Enrolled" }
+          - label: "Upcoming Events"
+            name: "events"
+            widget: "list"
+            fields:
+              - { label: "Date", name: "date", widget: "string", hint: "e.g. 28th Aug" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Type", name: "type", widget: "select", options: ["holiday", "activity", "meeting"] }
+          - label: "Stats (homepage counters)"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Value", name: "value", widget: "string", hint: "e.g. 3000+" }
+              - { label: "Label", name: "label", widget: "string", hint: "e.g. Students Enrolled" }
 
+  # ── File collection: single testimonials.json ─────────────────────
   - name: "testimonials"
     label: "Testimonials"
-    file: "content/testimonials.json"
-    fields:
-      - label: "Parent Testimonials"
-        name: "testimonials"
-        widget: "list"
+    files:
+      - name: "testimonials"
+        label: "Testimonials"
+        file: "content/testimonials.json"
         fields:
-          - { label: "Quote", name: "quote", widget: "text" }
-          - { label: "Author", name: "author", widget: "string" }
-          - { label: "Role", name: "role", widget: "string" }
+          - label: "Parent Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Author", name: "author", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
 
+  # ── File collection: single site.json ─────────────────────────────
   - name: "settings"
     label: "Site Settings"
-    file: "content/site.json"
-    fields:
-      - { label: "School Name", name: "name", widget: "string" }
-      - { label: "Tagline", name: "tagline", widget: "string" }
-      - { label: "Motto", name: "motto", widget: "string" }
-      - { label: "Board", name: "board", widget: "string" }
-      - { label: "Range", name: "range", widget: "string", hint: "e.g. Preschool → Class 12" }
-      - { label: "Logo", name: "logo", widget: "image" }
-      - { label: "Meta Title (SEO)", name: "metaTitle", widget: "string" }
-      - { label: "Meta Description (SEO)", name: "metaDescription", widget: "text" }
-      - { label: "Admissions Year", name: "admissionsYear", widget: "string", hint: "e.g. 2026–27" }
-      - { label: "Phone", name: "phone", widget: "string" }
-      - { label: "Email", name: "email", widget: "string" }
-      - { label: "Live Site Domain", name: "domain", widget: "string", hint: "The current official site, linked as Parent/ERP portal." }
+    files:
+      - name: "settings"
+        label: "Site Settings"
+        file: "content/site.json"
+        fields:
+          - { label: "School Name", name: "name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Motto", name: "motto", widget: "string" }
+          - { label: "Board", name: "board", widget: "string" }
+          - { label: "Range", name: "range", widget: "string", hint: "e.g. Preschool → Class 12" }
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Meta Title (SEO)", name: "metaTitle", widget: "string" }
+          - { label: "Meta Description (SEO)", name: "metaDescription", widget: "text" }
+          - { label: "Admissions Year", name: "admissionsYear", widget: "string", hint: "e.g. 2026–27" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Live Site Domain", name: "domain", widget: "string", hint: "The current official site, linked as Parent/ERP portal." }
