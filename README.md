@@ -25,6 +25,8 @@ npm run dev       # http://localhost:3000
 ## Build & Verify
 
 ```bash
+npm test          # Vitest: content integrity, link integrity, component smoke (28 tests)
+npm run lint      # ESLint
 npm run build     # static export to ./out
 npx serve out     # serve the static output locally
 ```
