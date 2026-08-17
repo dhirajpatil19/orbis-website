@@ -1,0 +1,39 @@
+// Real parent testimonials — scraped from live site (§5)
+export interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+}
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote:
+      "Jainam was able to write only capital English letters when class started this year… today, he is able to read big sentences and write everything himself. The growth we have seen in one year is remarkable.",
+    author: "Mr. Alpesh Modi",
+    role: "Parent",
+  },
+  {
+    quote:
+      "Aaryan Atal and Bhoumik Gulecha have bagged the Gold Medal in IMO from 4 Deneb. The school's focus on Olympiads and conceptual clarity is truly commendable.",
+    author: "Ms. Anju Atal",
+    role: "Parent",
+  },
+  {
+    quote:
+      "We are very pleased with Anavi's progress in online classes. The teachers keep lessons engaging and check in on every child personally.",
+    author: "Ms. Arpita Pasari",
+    role: "Parent",
+  },
+  {
+    quote:
+      "It's been 5 years since my daughter started going to Orbis, and I do not recall a day she has not been excited to go to school. That says everything about the environment the school has built.",
+    author: "Orbis Parent",
+    role: "Parent",
+  },
+  {
+    quote:
+      "The curriculum is ever evolving and has a progressive outlook with intellectual rigour. The extra-curricular activities are varied, enriching and exciting — a true celebration of learning.",
+    author: "Orbis Community Member",
+    role: "Parent",
+  },
+];

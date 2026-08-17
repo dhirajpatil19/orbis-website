@@ -1,0 +1,57 @@
+// Campus data — contacts verified from scraped content reference (§6)
+export type CampusSlug = "keshav-nagar" | "mundhwa" | "gahunje";
+
+export interface Campus {
+  slug: CampusSlug;
+  name: string;
+  shortName: string;
+  address: string;
+  phones: string[];
+  email: string;
+  image: string;
+  blurb: string;
+  mapQuery: string;
+}
+
+export const CAMPUSES: Campus[] = [
+  {
+    slug: "keshav-nagar",
+    name: "The Orbis School, Keshav Nagar",
+    shortName: "Keshav Nagar",
+    address: "33, 3A/6, Keshav Nagar, Mundhwa, Pune 411036. INDIA",
+    phones: ["+91-86868 60290", "+91-86868 60390"],
+    email: "info.pune1@theorbisschool.com",
+    image: "/images/campus-keshav-nagar.webp",
+    blurb:
+      "Our flagship campus in the heart of Keshav Nagar — a complete Pre-primary to Class 12 CBSE school known for academic excellence, sportsmanship and a vibrant community.",
+    mapQuery: "The Orbis School Keshav Nagar Pune",
+  },
+  {
+    slug: "mundhwa",
+    name: "The Orbis School, Mundhwa",
+    shortName: "Mundhwa",
+    address: "35, 2D/1, Mundhwa Manjri Road, Keshav Nagar, Mundhwa, Pune 411036. INDIA",
+    phones: ["+91-73737 35063", "+91-73737 35163"],
+    email: "info.pune2@theorbisschool.com",
+    image: "/images/campus-mundhwa.webp",
+    blurb:
+      "A warm, green campus on Mundhwa Manjri Road offering the full Orbis journey — experiential learning, sports and co-scholastic excellence in a close-knit community.",
+    mapQuery: "The Orbis School Mundhwa Pune",
+  },
+  {
+    slug: "gahunje",
+    name: "The Orbis School, Gahunje",
+    shortName: "Gahunje",
+    address: "357, Gahunje, Pune 412101. INDIA",
+    phones: ["+91-63632 63634", "+91-86868 63290"],
+    email: "info.pune3@theorbisschool.com",
+    image: "/images/campus-gahunje.webp",
+    blurb:
+      "Our modern campus at Gahunje — spacious classrooms, expansive sports grounds and state-of-the-art labs, delivering the Orbis philosophy to the western corridor of Pune.",
+    mapQuery: "The Orbis School Gahunje Pune",
+  },
+];
+
+export function getCampus(slug: string): Campus | undefined {
+  return CAMPUSES.find((c) => c.slug === slug);
+}

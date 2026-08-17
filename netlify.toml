@@ -1,0 +1,8 @@
+# Netlify deploy config — The Orbis School static site
+[build]
+  command = "npm run build"
+  publish = "out"
+
+# Node version pinned (Next 16 requires Node >= 20)
+[build.environment]
+  NODE_VERSION = "22"
