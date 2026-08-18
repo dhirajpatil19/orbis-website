@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, GraduationCap } from "lucide-react";
 import { SITE } from "@/content/site";
 import { CAMPUSES } from "@/content/campuses";
 import { NewsletterForm } from "@/components/Forms";
 
-// lucide-react no longer ships brand logos — inline SVGs keep the footer social
-// links lightweight and dependency-free.
 const SOCIALS = [
   {
     label: "Facebook",
@@ -26,28 +24,31 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-900 text-brand-100">
-      <div className="h-1 bg-gradient-to-r from-brand-700 via-accent-500 to-brand-700" />
+    <footer className="bg-navy-950 text-navy-100">
+      <div className="h-1 bg-gradient-to-r from-emerald-600 via-gold-500 to-emerald-600" />
       <div className="mx-auto max-w-7xl px-4 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={SITE.logo} alt="The Orbis School logo" className="h-14 w-14 object-contain mb-4" width={56} height={56} />
+          <img src={SITE.logo} alt="The Orbis School logo" className="h-14 w-14 object-contain mb-4 bg-white rounded-xl p-1" width={56} height={56} />
           <h3 className="font-display text-xl text-white font-semibold mb-2">The Orbis School</h3>
-          <p className="text-sm text-brand-100/80 leading-relaxed">
-            {SITE.tagline}. A Wissen Education Foundation initiative — CBSE education from
-            preschool to Class 12 across three campuses in Pune.
+          <p className="text-sm text-navy-200 leading-relaxed">
+            {SITE.tagline}. A premium CBSE network — preschool to Class 12 across three
+            campuses in Pune.
+          </p>
+          <p className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1.5 text-xs font-semibold text-gold-400">
+            <GraduationCap className="h-3.5 w-3.5" /> {SITE.board} · {SITE.range}
           </p>
         </div>
 
         <div>
           <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link className="hover:text-accent-400" href="/about/why-orbis">Why Orbis</Link></li>
-            <li><Link className="hover:text-accent-400" href="/admissions/process">Admission Process</Link></li>
-            <li><Link className="hover:text-accent-400" href="/admissions/fee-structure">Fee Structure</Link></li>
-            <li><Link className="hover:text-accent-400" href="/resources/blog">Blog</Link></li>
-            <li><Link className="hover:text-accent-400" href="/resources/faqs">FAQs</Link></li>
-            <li><Link className="hover:text-accent-400" href="/contact/careers">Careers</Link></li>
+            <li><Link className="hover:text-gold-400 transition-colors" href="/about/why-orbis">Why Orbis</Link></li>
+            <li><Link className="hover:text-gold-400 transition-colors" href="/admissions/process">Admission Process</Link></li>
+            <li><Link className="hover:text-gold-400 transition-colors" href="/admissions/fee-structure">Fee Structure</Link></li>
+            <li><Link className="hover:text-gold-400 transition-colors" href="/resources/blog">Blog</Link></li>
+            <li><Link className="hover:text-gold-400 transition-colors" href="/resources/faqs">FAQs</Link></li>
+            <li><Link className="hover:text-gold-400 transition-colors" href="/contact/careers">Careers</Link></li>
           </ul>
         </div>
 
@@ -56,28 +57,33 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             {CAMPUSES.map((c) => (
               <li key={c.slug}>
-                <Link className="hover:text-accent-400" href={`/campuses/${c.slug}`}>
-                  {c.shortName}
+                <Link className="hover:text-gold-400 transition-colors" href={`/campuses/${c.slug}`}>
+                  {c.shortName} — Pune
                 </Link>
               </li>
             ))}
+          </ul>
+          <h4 className="text-white font-semibold mt-6 mb-3 text-sm uppercase tracking-wider">Explore</h4>
+          <ul className="space-y-2 text-sm">
+            <li><Link className="hover:text-gold-400 transition-colors" href="/#campus-finder">Campus Finder</Link></li>
+            <li><Link className="hover:text-gold-400 transition-colors" href="/about/awards">Awards & Recognition</Link></li>
           </ul>
         </div>
 
         <div>
           <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
-          <ul className="space-y-3 text-sm text-brand-100/80 mb-5">
-            <li className="flex gap-2"><MapPin className="h-4 w-4 shrink-0 mt-0.5 text-accent-400" /> 33, 3A/6, Keshav Nagar, Mundhwa, Pune 411036</li>
-            <li className="flex gap-2"><Phone className="h-4 w-4 shrink-0 mt-0.5 text-accent-400" /> {SITE.phone}</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0 mt-0.5 text-accent-400" /> {SITE.email}</li>
+          <ul className="space-y-3 text-sm text-navy-200">
+            <li className="flex gap-2.5"><MapPin className="h-4 w-4 shrink-0 mt-0.5 text-gold-400" /> 33, 3A/6, Keshav Nagar, Mundhwa, Pune 411036</li>
+            <li className="flex gap-2.5"><Phone className="h-4 w-4 shrink-0 mt-0.5 text-gold-400" /> {SITE.phone}</li>
+            <li className="flex gap-2.5"><Mail className="h-4 w-4 shrink-0 mt-0.5 text-gold-400" /> {SITE.email}</li>
           </ul>
-          <p className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Monthly Newsletter</p>
+          <p className="text-white font-semibold mt-6 mb-3 text-sm uppercase tracking-wider">Monthly Newsletter</p>
           <NewsletterForm />
         </div>
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-100/70">
+        <div className="mx-auto max-w-7xl px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-navy-200/80">
           <p>© {new Date().getFullYear()} The Orbis Schools, Pune. All rights reserved.</p>
           <div className="flex items-center gap-3">
             {SOCIALS.map((s) => (
@@ -87,7 +93,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={s.label}
-                className="rounded-full bg-white/10 p-2.5 text-brand-100 hover:bg-accent-500 hover:text-brand-900 transition-colors"
+                className="rounded-full bg-white/10 p-2.5 text-navy-100 hover:bg-gold-500 hover:text-navy-900 transition-colors"
               >
                 <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
                   <path d={s.path} />
@@ -95,7 +101,7 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <p>Concept site built from public content of theorbisschool.com · Admissions Open {SITE.admissionsYear}</p>
+          <p>Admissions Open {SITE.admissionsYear} · Concept site built from public content of theorbisschool.com</p>
         </div>
       </div>
     </footer>

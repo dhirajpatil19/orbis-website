@@ -1,40 +1,52 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand tokens — from The Orbis School live site + plan */
-  --color-brand-900: #1f3d33;
-  --color-brand-800: #264a3c;
-  --color-brand-700: #2c5142;
-  --color-brand-600: #33594c;
-  --color-brand-500: #4a7a66;
-  --color-brand-400: #6f9a88;
-  --color-brand-300: #9cbeb0;
-  --color-brand-100: #e7efeb;
-  --color-brand-50: #f3f7f5;
+  /* ── Premium academic palette: deep navy · emerald · gold ── */
+  --color-navy-950: #0a1724;
+  --color-navy-900: #0c1b2a;
+  --color-navy-800: #12283c;
+  --color-navy-700: #1a3a55;
+  --color-navy-600: #245070;
+  --color-navy-500: #3a6b90;
+  --color-navy-200: #b9c9d8;
+  --color-navy-100: #e4ebf2;
+  --color-navy-50: #f2f6fa;
 
-  --color-accent-300: #ffe680;
-  --color-accent-400: #ffd94d;
-  --color-accent-500: #ffcc29;
-  --color-accent-600: #e6b400;
+  --color-emerald-700: #0b5c47;
+  --color-emerald-600: #0e7a5f;
+  --color-emerald-500: #14996f;
+  --color-emerald-200: #b5e2d2;
+  --color-emerald-100: #ddf2ea;
+  --color-emerald-50: #f0faf6;
 
-  --color-ink-900: #14211c;
-  --color-ink-700: #2c3b34;
-  --color-ink-600: #4a5a52;
-  --color-ink-400: #7a8a81;
+  --color-gold-500: #e8b54a;
+  --color-gold-400: #f0c46a;
+  --color-gold-200: #f7dfae;
+  --color-gold-100: #fbf0d8;
 
-  --color-paper: #faf8f4;
+  --color-ink-900: #0c1b2a;
+  --color-ink-700: #23344a;
+  --color-ink-600: #42566c;
+  --color-ink-400: #7c8ea1;
 
-  /* Warm accents — Edunova-inspired modern education palette */
-  --color-clay-500: #c97f4e;
-  --color-clay-400: #d59850;
-  --color-clay-100: #f6e9dd;
-  --color-lilac-100: #eef0fc;
-  --color-lilac-200: #e4e5fc;
-  --color-sand-100: #f3ece2;
+  --color-paper: #f7f5f0;
+  --color-white: #ffffff;
 
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Fraunces", ui-serif, Georgia, serif;
 }
+
+/* ── Campus accent system ────────────────────────────────────
+   Each franchise injects its own accent via the data-campus attribute;
+   typography + layout stay master-brand. */
+:root {
+  --campus: #14996f;
+  --campus-soft: #ddf2ea;
+  --campus-contrast: #ffffff;
+}
+[data-campus="keshav-nagar"] { --campus: #14996f; --campus-soft: #ddf2ea; }
+[data-campus="mundhwa"]     { --campus: #d9a441; --campus-soft: #fbf0d8; }
+[data-campus="gahunje"]     { --campus: #b6533a; --campus-soft: #f7e4de; }
 
 html {
   scroll-behavior: smooth;
@@ -51,12 +63,12 @@ h1, h2, h3, h4 {
   color: var(--color-ink-900);
   font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 ::selection {
-  background: var(--color-accent-500);
-  color: var(--color-brand-900);
+  background: var(--color-gold-500);
+  color: var(--color-navy-900);
 }
 
 .skip-link {
@@ -64,7 +76,7 @@ h1, h2, h3, h4 {
   left: -9999px;
   top: 0;
   z-index: 100;
-  background: var(--color-brand-900);
+  background: var(--color-navy-900);
   color: white;
   padding: 0.75rem 1.25rem;
   border-radius: 0 0 0.75rem 0;
@@ -75,7 +87,7 @@ h1, h2, h3, h4 {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-accent-500);
+  outline: 3px solid var(--color-gold-500);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -83,12 +95,24 @@ h1, h2, h3, h4 {
 /* Slim, brand-tinted scrollbar */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--color-brand-300); border-radius: 999px; border: 2px solid var(--color-paper); }
-::-webkit-scrollbar-thumb:hover { background: var(--color-brand-500); }
+::-webkit-scrollbar-thumb { background: var(--color-navy-200); border-radius: 999px; border: 2px solid var(--color-paper); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-navy-500); }
 
-/* ─── Motion ─────────────────────────────────────────────── */
+/* ── Glassmorphism ─────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.glass-light {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
 
-/* Hero content entrance */
+/* ── Motion ────────────────────────────────────────────────── */
 @keyframes hero-fade-up {
   from { opacity: 0; transform: translateY(26px); }
   to { opacity: 1; transform: none; }
@@ -97,7 +121,6 @@ h1, h2, h3, h4 {
   animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Slow zoom on the active hero image */
 @keyframes ken-burns {
   from { transform: scale(1); }
   to { transform: scale(1.09); }
@@ -106,7 +129,6 @@ h1, h2, h3, h4 {
   animation: ken-burns 10s ease-out forwards;
 }
 
-/* Events ticker marquee */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -114,11 +136,8 @@ h1, h2, h3, h4 {
 .animate-marquee {
   animation: marquee 45s linear infinite;
 }
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
+.animate-marquee:hover { animation-play-state: paused; }
 
-/* Subtle floating for badges */
 @keyframes float-soft {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -127,20 +146,20 @@ h1, h2, h3, h4 {
   animation: float-soft 5s ease-in-out infinite;
 }
 
-/* Organic blob shape (Edunova-style soft geometry) */
+/* Organic blob shape */
 .blob {
   border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
 }
 
-/* Soft layered shadow used across cards */
+/* Soft layered shadows */
 .shadow-soft {
-  box-shadow: 0 1px 2px rgba(20, 33, 28, 0.04), 0 12px 32px -12px rgba(20, 33, 28, 0.12);
+  box-shadow: 0 1px 2px rgba(10, 23, 36, 0.04), 0 12px 32px -12px rgba(10, 23, 36, 0.12);
 }
 .shadow-soft-lg {
-  box-shadow: 0 2px 4px rgba(20, 33, 28, 0.05), 0 24px 48px -16px rgba(20, 33, 28, 0.18);
+  box-shadow: 0 2px 4px rgba(10, 23, 36, 0.05), 0 24px 48px -16px rgba(10, 23, 36, 0.18);
 }
 
-/* Reveal-on-scroll (JS adds .is-visible; reduced-motion users see content immediately) */
+/* Reveal-on-scroll */
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -151,6 +170,12 @@ h1, h2, h3, h4 {
   opacity: 1;
   transform: none;
   filter: blur(0);
+}
+
+/* Native <dialog> — reset to modern, rounded sheet */
+dialog::backdrop {
+  background: rgba(10, 23, 36, 0.55);
+  backdrop-filter: blur(4px);
 }
 
 @media (prefers-reduced-motion: reduce) {
