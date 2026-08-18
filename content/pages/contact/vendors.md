@@ -4,7 +4,7 @@ title: Vendors
 kicker: Contact
 metaTitle: "Vendors | The Orbis School Pune"
 metaDescription: "Vendor registration and partnerships with The Orbis Schools — transport, catering, infrastructure and services."
-heroImage: /images/hero-1.jpg
+heroImage: /images/about_images/Highlights.webp
 ---
 
 ## Partner With Orbis

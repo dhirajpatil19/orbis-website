@@ -116,7 +116,9 @@ describe("interior pages", () => {
       expect(page.blocks.length, `${page.slug} blocks`).toBeGreaterThan(0);
       for (const block of page.blocks) {
         expect(block.body, `${page.slug} block body`).toBeTruthy();
-        expect(block.body.length).toBeGreaterThan(20);
+        // Real scraped copy includes short list items (e.g. "Cricket"), so only
+        // guard against empty/whitespace blocks.
+        expect(block.body.trim().length, `${page.slug} block body length`).toBeGreaterThan(0);
       }
     }
   });

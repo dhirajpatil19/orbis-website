@@ -4,8 +4,18 @@ title: Gallery
 kicker: Life at Orbis
 metaTitle: "Gallery | The Orbis School Pune"
 metaDescription: "Photo gallery of campus life at The Orbis Schools — classrooms, sports, festivals and celebrations."
-heroImage: /images/campus-mundhwa.webp
+heroImage: /images/about_images/Highlights.webp
 ---
 
-## Moments That Matter
-A glimpse of everyday life at Orbis — from the excitement of sports day to the quiet focus of the lab, from cultural festivals to classroom discoveries.
+Gallery | The Orbis School Pune
+## Share Now
+## Gallery
+## Curriculum & Learning
+## Events@Orbis
+## Field Trips
+## Fun @ Orbis
+## Games & Sports
+## Infrastructure
+## Labs and Studios
+## Library
+-->

@@ -83,6 +83,7 @@ All content is plain files under `content/` — editable via the dashboard **or*
 | `content/campuses.json` | Campus details |
 | `content/events.json` | Events ticker + stats |
 | `content/testimonials.json` | Parent quotes |
+| `content/gallery.json` | Photo gallery manifest (rendered on Life at Orbis → Gallery) |
 | `content/posts/*.md` | Blog posts (frontmatter + markdown body) |
 | `content/pages/**/*.md` | Interior pages (frontmatter + markdown body) |
 

@@ -9,6 +9,7 @@ import { EnquiryForm, ContactForm } from "@/components/Forms";
 import { PAGES, getPage } from "@/content/pages";
 import { CAMPUSES, getCampus } from "@/content/campuses";
 import { TESTIMONIALS } from "@/content/testimonials";
+import galleryJson from "../../../content/gallery.json";
 
 // Campus sub-pages (each campus gets a consistent set)
 const CAMPUS_SUBPAGES = [
@@ -63,6 +64,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
   return {};
+}
+
+function GalleryGrid({ images }: { images: string[] }) {
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+      {images.map((src) => (
+        <a
+          key={src}
+          href={src}
+          target="_blank"
+          rel="noreferrer"
+          className="group block overflow-hidden rounded-2xl bg-brand-50 aspect-[4/3]"
+          aria-label="Open photo"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={src} alt="" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </a>
+      ))}
+    </div>
+  );
 }
 
 function Sidebar({ links, path }: { links: { label: string; href: string }[]; path: string }) {
@@ -277,6 +298,8 @@ export default async function InteriorPage({ params }: Props) {
               </div>
             ) : path === "admissions/enquiry" ? (
               <EnquiryForm />
+            ) : path === "life/gallery" ? (
+              <GalleryGrid images={galleryJson.images} />
             ) : path === "contact" || path === "contact/careers" || path === "contact/vendors" || path === "contact/franchise" ? (
               <ContactForm formName={path.split("/")[1] ?? "contact"} title={path === "contact/careers" ? "Apply to Join Our Team" : path === "contact/vendors" ? "Vendor Registration" : path === "contact/franchise" ? "Franchise Enquiry" : "Send Us a Message"} />
             ) : path === "resources/faqs" ? (

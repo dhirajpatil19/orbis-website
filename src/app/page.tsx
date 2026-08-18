@@ -66,7 +66,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-accent-400/30 to-brand-500/20 blur-2xl" aria-hidden="true" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/about-orbis.webp" alt="The Orbis School campus life" className="relative rounded-[2rem] shadow-2xl w-full aspect-[4/3] object-cover" />
+              <img src="/images/about_images/aboutorbis.webp" alt="The Orbis School campus life" className="relative rounded-[2rem] shadow-2xl w-full aspect-[4/3] object-cover" />
               <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-brand-900 text-white rounded-3xl px-6 py-5 shadow-2xl animate-float-soft">
                 <p className="font-display text-4xl font-semibold text-accent-400">19+</p>
                 <p className="text-xs text-brand-100/80 mt-1">Years of Excellence</p>
@@ -180,9 +180,9 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {FACILITIES.map((f, i) => (
               <Reveal key={f.label} delay={i * 80}>
-                <div className="rounded-3xl bg-white/5 border border-white/10 p-7 h-full hover:bg-white/10 hover:border-accent-500/30 transition-all">
-                  <div className="rounded-2xl bg-accent-500/15 p-3 inline-flex mb-5">
-                    <f.icon className="h-7 w-7 text-accent-400" />
+                <div className="rounded-3xl bg-white/5 border border-white/10 p-7 h-full hover:bg-white/10 hover:border-clay-400/30 transition-all">
+                  <div className="rounded-2xl bg-clay-500/15 p-3 inline-flex mb-5">
+                    <f.icon className="h-7 w-7 text-clay-400" />
                   </div>
                   <h3 className="font-semibold text-white mb-2">{f.label}</h3>
                   <p className="text-sm text-brand-100/80 leading-relaxed">{f.desc}</p>
@@ -218,7 +218,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-lilac-100/40">
         <div className="mx-auto max-w-7xl px-4">
           <SectionHeading
             kicker="Testimonials"

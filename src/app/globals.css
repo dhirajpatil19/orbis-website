@@ -22,7 +22,15 @@
   --color-ink-600: #4a5a52;
   --color-ink-400: #7a8a81;
 
-  --color-paper: #fbfbf7;
+  --color-paper: #faf8f4;
+
+  /* Warm accents — Edunova-inspired modern education palette */
+  --color-clay-500: #c97f4e;
+  --color-clay-400: #d59850;
+  --color-clay-100: #f6e9dd;
+  --color-lilac-100: #eef0fc;
+  --color-lilac-200: #e4e5fc;
+  --color-sand-100: #f3ece2;
 
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Fraunces", ui-serif, Georgia, serif;
@@ -117,6 +125,19 @@ h1, h2, h3, h4 {
 }
 .animate-float-soft {
   animation: float-soft 5s ease-in-out infinite;
+}
+
+/* Organic blob shape (Edunova-style soft geometry) */
+.blob {
+  border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
+}
+
+/* Soft layered shadow used across cards */
+.shadow-soft {
+  box-shadow: 0 1px 2px rgba(20, 33, 28, 0.04), 0 12px 32px -12px rgba(20, 33, 28, 0.12);
+}
+.shadow-soft-lg {
+  box-shadow: 0 2px 4px rgba(20, 33, 28, 0.05), 0 24px 48px -16px rgba(20, 33, 28, 0.18);
 }
 
 /* Reveal-on-scroll (JS adds .is-visible; reduced-motion users see content immediately) */

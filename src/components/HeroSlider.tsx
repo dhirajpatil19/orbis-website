@@ -6,19 +6,19 @@ import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 
 const SLIDES = [
   {
-    image: "/images/hero-1.jpg",
+    image: "/images/slider_images/OrbisMainwebsite.jpg",
     kicker: "Admissions Open 2026–27",
     title: "Learners today, Leaders tomorrow!",
     sub: "Experiential learning, sportsmanship and responsible leadership — CBSE education from preschool to Class 12.",
   },
   {
-    image: "/images/hero-2.jpg",
+    image: "/images/slider_images/OrbisMainwebsite2.jpg",
     kicker: "Three Campuses in Pune",
     title: "At Orbis, enjoy experiential learning!",
     sub: "Keshav Nagar · Mundhwa · Gahunje — a complete Pre-primary to Class 12 journey.",
   },
   {
-    image: "/images/hero-3.jpg",
+    image: "/images/slider_images/OrbisMainwebsite1.jpg",
     kicker: "NCC Empowering Youth",
     title: "Together We Thrive",
     sub: "Discipline, leadership and service — co-scholastic excellence that shapes character.",
@@ -113,6 +113,10 @@ export default function HeroSlider() {
         </div>
       ))}
 
+      {/* Warm organic blob accent */}
+      <div className="absolute -left-28 top-20 h-80 w-80 blob bg-accent-500/15 blur-2xl" aria-hidden="true" />
+      <div className="absolute right-0 bottom-0 h-64 w-64 blob bg-lilac-200/20 blur-2xl" aria-hidden="true" />
+
       <button
         onClick={prev}
         className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/25 backdrop-blur-md border border-white/15 transition-colors"
@@ -137,6 +141,14 @@ export default function HeroSlider() {
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
+      </div>
+
+      {/* Floating glass stat card */}
+      <div className="absolute right-6 sm:right-14 bottom-24 hidden md:block animate-float-soft z-10">
+        <div className="rounded-3xl bg-white/10 border border-white/20 backdrop-blur-xl px-6 py-5 text-white shadow-soft-lg">
+          <p className="font-display text-3xl font-semibold text-accent-400">3000+</p>
+          <p className="text-xs text-white/85 mt-1">Students across 3 campuses</p>
+        </div>
       </div>
     </section>
   );

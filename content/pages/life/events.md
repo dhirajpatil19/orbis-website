@@ -4,16 +4,13 @@ title: "Events & Annual Calendar"
 kicker: Life at Orbis
 metaTitle: "Events & Annual Calendar | The Orbis School Pune"
 metaDescription: "The Orbis School events calendar — holidays, celebrations, festivals and activities across the academic year."
-heroImage: /images/campus-mundhwa.webp
+heroImage: /images/slider_images/Sportsmanship.webp
 ---
 
-## A Year of Celebrations
-Life at Orbis is a calendar of celebrations — national days, festivals, sports meets, cultural festivals and academic events keep the campus vibrant all year round.
-
-## Upcoming Dates
-Check back regularly for the latest circulars. Highlights this month include Independence Day, Founders' Day and OrbiLoqui.
-- 28th Aug — Rakshabandhan (Holiday)
-- 26th Aug — Milad-un-Nabi / Id-E-Milad (Holiday)
-- 25th Aug — Founders' Day
-- 15th Aug — Independence Day
-- 4th Aug — OrbiLoqui, Grades 11 & 12
+Annual Calendars & Events | The Orbis School Pune (CBSE)
+## Share Now
+## Events
+Annual Calendars & Events At The Orbis School, our annual calendar is brimming with exciting events and activities designed to enrich our students' academic and extracurricular experiences. From cultural festivals and sports tournaments, literary events, international projects, and interactions to academic competitions and community service projects, our calendar reflects our commitment to holistic development. Students can look forward to engaging workshops, guest lectures, and field trips that enhance their learning beyond the classroom. Our annual calendar is meticulously planned to ensure a vibrant and dynamic school year for all our students and staff.
+Keshav Nagar
+##
+-->

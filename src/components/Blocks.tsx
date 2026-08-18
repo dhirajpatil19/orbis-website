@@ -53,6 +53,7 @@ export function SectionHeading({ kicker, title, subtitle, center = true }: { kic
         </p>
       )}
       <h2 className="font-display text-3xl sm:text-4xl font-semibold text-ink-900 leading-tight">{title}</h2>
+      {center && <span className="mx-auto mt-5 block h-1.5 w-16 rounded-full bg-gradient-to-r from-accent-500 via-clay-400 to-brand-500" aria-hidden="true" />}
       {subtitle && <p className="mt-4 text-ink-600 leading-relaxed">{subtitle}</p>}
     </div>
   );
@@ -63,6 +64,7 @@ export function CTABand() {
     <section className="relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,204,41,0.18),transparent_55%)]" />
       <div className="absolute -bottom-28 -left-28 h-80 w-80 rounded-full bg-accent-500/10 blur-3xl" />
+      <div className="absolute -top-20 right-10 h-72 w-72 blob bg-clay-500/15 blur-3xl" aria-hidden="true" />
       <div className="relative mx-auto max-w-4xl px-4 py-20 sm:py-24 text-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md px-4 py-1.5 text-xs font-bold text-accent-300 uppercase tracking-[0.2em]">
           <CalendarCheck className="h-4 w-4" />
