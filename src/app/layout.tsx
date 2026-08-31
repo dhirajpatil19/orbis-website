@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { SITE } from "@/content/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://orbis-website.netlify.app"),
+  metadataBase: new URL("https://orbisschool.netlify.app"),
   title: {
     default: SITE.metaTitle,
     template: `%s | The Orbis School`,
